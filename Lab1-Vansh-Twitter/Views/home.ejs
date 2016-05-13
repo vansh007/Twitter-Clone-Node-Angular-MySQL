@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Twitter</title>
+<link rel="stylesheet" href="../stylesheets/style.css" type="text/css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style>
+a.navigate {
+	font-size: 30px;
+}
+</style>
+
+
+</head>
+<body class="login" ng-app="homeAngular" ng-controller="homeController">
+
+<div id="twitter1-Bar">
+  <div id="twitter1-Frame">
+ 
+    <div id="logo1"> <a href="/home"><span class="glyphicon glyphicon-home" style="font-size: 16px; color: #505050 ;"></span>&nbsp;<span style="font-size: 17px; color: #B0B0B0 ;">Home</span></a>&nbsp;&nbsp;
+    <
+       <a href="/about"><span class="glyphicon glyphicon-th-large" style="font-size: 16px; color: #505050 ;"></span>&nbsp;<span style="font-size: 20px; font-stretch: 5px; color: #B0B0B0 ; ">Profile</span></a>&nbsp;&nbsp;
+       <a href="/home"><span class="glyphicon glyphicon-bell" style="font-size: 16px; color: #505050 ;"></span>&nbsp;<span style="font-size: 20px; color: #B0B0B0 ;">Notification</span></a>&nbsp;&nbsp;
+       <a href="/home"><span class="glyphicon glyphicon-comment" style="font-size: 16px; color: #505050 ;"></span>&nbsp;<span style="font-size: 20px; color: #B0B0B0 ;"> Message</span></a>&nbsp;&nbsp;
+
+
+    </div>
+    
+         
+        <div id="header-main-right" align="right">
+          <div id="header-main-right-nav" align="right">
+        
+          <table border="0" style="border:dashed;">
+            <tr>
+              <td ><input type="text" placeholder="Search community" class="inputtext123 " value="" ng-model="search"></td>
+              <td ><button class="twbutton" ng-click="searchUser()">Search</button></td><br>
+              <td ><button class="twbutton1" ng-click="logout()">Logout</button></td>
+              </tr>
+              </table>
+
+             <div class="wrapper">
+    <p ng-hide="showme"></p>
+    <h2  ng-show="showme">
+  <div>
+
+              <a style="font-size: 25px; position: relative;
+    top: 1px;
+    right: 94px;
+    width: 185px;
+" href=""  ng-click="showme=false">Hide Following list</a> 
+              <div ng-repeat="x in details">
+              <div class="container">
+	  <div class="panel-group" style="padding: 14px; width: 300px;">
+	    <div class="panel panel-info">
+	      <div class="panel-heading" align="left">{{x.fname + " " + x.lname}}
+        </div>
+	      </h2>
+    
+
+
+
+<p ng-hide="showme1"></p>
+    <h2 class="check-element animate-show" ng-show="showme1">
+  <div>
+
+
+   <a style="font-size: 25px; position: relative;
+    top: 1px;
+    right: 94px;
+    width: 185px;
+" href=""  ng-click="showme1=false">Hide Followers list</a> 
+
+              <div ng-repeat="x in details1">
+              <div class="container">
+	  <div class="panel-group" style="padding: 14px; width: 300px;">
+	    <div class="panel panel-info">
+	      <div class="panel-heading" align="left">{{x.fname + " " + x.lname}}
+        </div>
+	      </h2>
+    
+
+<p ng-hide="followUs"></p>
+    <h2 class="check-element animate-show" ng-show="followUs">
+  <div>
+
+              <div class="container">
+	  <div class="panel-group" style="padding: 14px; width: 300px;">
+	    <div class="panel panel-info">
+	      <div class="panel-heading" align="left">{{fname}}
+	      <button class="twbutton2" ng-click="followUser()">Follow</button>
+        </div>
+
+	      </div>
+	      </h2>
+    
+
+
+
+
+	    </div>
+	  </div>
+</div>
+</div>
+
+        
+      </div>
+      		
+          </div>
+      </div>
+</div>
+
+    <div class="wrapper">
+      <div class="dashboard">
+        <div class="profile">
+          <div class="cover-photo"></div>
+          <div class="user">
+            <div class="avatar">
+              <img src="https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfp1/v/t1.0-9/11025173_803813863005193_6935564833298393426_n.jpg?oh=fc9e3c1b27889f26d351c7277af2c9e6&oe=5791E0A7" class="avatar-img">
+               <div class="user-field">
+              <div class="name">{{name}}</div>
+              <div class="username">@{{username123}}</div>
+            </div>
+            </div>
+            <div class="row stats">
+              <div class="col-xs-4 col-sm-4 col-md-4 stat-section">
+                <h4>TWEETS</h4>
+                <p>{{tweet}}</p>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 stat-section">
+                <h4>FOLLOWING</h4>
+                <p><a href="" ng-click="showme=true">{{follower}}</a></p>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 stat-section">
+                <h4>FOLLOWERS</h4>
+                <p><a href="" ng-click="showme1=true">{{following}}</a></p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="trends">
+          <div class="cover-photo">
+          </div>
+          <div class="trends-text">
+            <h4>Trends</h4>
+            <ul class="list-unstyled">
+              <a><li style="font-size: 18px;">#MiddleTennessee</li>
+                  <li style="color: darkgrey;">110.2K Tweets</li>
+              </a>
+              <a><li style="font-size: 18px;">#Michigan State</li></a>
+              <li style="color: darkgrey;">69.2K Tweets</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+<div class="container" >
+  <ul class="list-inline">
+    <li><a href="/about" style="font-size: 14px; background-size: 20px;"></a></li>
+    
+    <li><a href="/getFollowers" ></a></li>
+  </ul>
+
+
+  </div>
+
+<div align="CENTER" >
+<div class="container">
+
+    <div class="panel-group" style=" width: 575px; ">
+      <div class="panel panel-primary">
+        <div class="panel-heading text-left">TWEET NOW.......:
+                </div>
+        <div class="panel-body">
+          
+<form role="form" class="form-horizontal">
+  <div style="padding:14px; height: 100px;"  class="form-group">
+    <textarea placeholder="Whats happening?" class="form-control" ng-model="feed"></textarea>
+  </div>
+ 
+
+        </div>
+        <div class="panel-footer" style="height: 50px">
+        <button type="button" class="btn btn-success pull-right" ng-click="postFeed()">Tweet</button>
+        <div class="col-md-2"></div>
+                <span class="glyphicon glyphicon-share-alt tweet-action" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-random tweet-action" aria-hidden="true"></span><span> </span>
+                <span class="glyphicon glyphicon-star tweet-action" aria-hidden="true"></span><span></span>
+              </div>
+</form>
+</div>
+      </div>
+    </div>
+
+<div align="center" >
+<div ng-repeat="x in feeds">
+	<div class="container" >
+	<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="text-align: left;">Originally tweeted by: <h3>{{x.fname}}</h3></h4>
+        </div>
+        <div class="modal-body" style="text-align: left">
+
+          <p>Tweet: &nbsp; &nbsp;{{x.feed}}</p>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-ng-click="retweet()">Retweet</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+	  <div class="panel-group" style="padding: 14px; width: 600px; ">
+	    <div class="panel panel-info	" >
+	      <div class="panel-heading"  align="left">Tweet by: {{x.fname + " " + x.lname }}
+        <div class="panel-heading text-right">{{x.time_stamp}}
+        </div>
+        </div>
+	      <div class="panel-body text-left ">{{x.feed}}</div>
+        <div class="panel-footer">
+        <ul class="list-inline center-block text-center ">
+          <li >
+            
+              <i class="glyphicon glyphicon-random tweet-action" data-toggle="modal" data-target="#myModal" aria-hidden="true">
+              </i>
+            </a>
+          </li>
+          <li >
+            <a href="#">
+              <i class="glyphicon glyphicon-share-alt tweet-action">
+              </i>
+            </a>
+          </li>
+
+
+
+        </ul>
+
+
+</div>
+
+
+
+	    </div>
+	  </div>
+	</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+
+
+
+<script>
+  
+
+  	var home = angular.module('homeAngular', []);
+	home.controller('homeController', homeOperations); 
+
+	<!--Home Function-->
+	
+	function homeOperations($scope, $http) {
+  		
+  		$scope.followUs = false;
+  		
+
+
+  		
+		$http.get("/overview")
+  			.success(function(data) {
+  				console.log("Success returned from Overview function");
+  				$scope.name = data[0].fname + data[0].lname;
+  				$scope.name1 = data[0].fname;
+  				$scope.email = data[0].email_id;
+  				$scope.phno = data[0].phone_no;
+  				$scope.address = data[0].address;
+          		$scope.username123 = data[0].user_name;
+  		})
+
+  			$http.get("/follower_count")
+  			.success(function(data) {
+  				console.log("Success returned from Overview function");
+  				$scope.follower = data[0].follower1 ;
+  				
+  		})
+
+
+			$http.get("/following_count")
+  			.success(function(data) {
+  				console.log("Success returned from Overview function");
+  				$scope.following = data[0].following1 ;
+  				
+  		})
+
+
+  			$http.get("/tweet_count")
+  			.success(function(data) {
+  				console.log("Success returned from Overview function");
+  				$scope.tweet = data[0].tweets ;
+  				
+  		})
+
+
+  			$http.get("/wallPost")
+  			.success(function(data) {
+  				console.log("Success returned from wallPost function");
+  				$scope.feeds = data.slice(0);
+  	})
+
+		  	$http.get("/getFollowing")
+  			.success(function(data) {
+  				console.log("Success returned from wallPost function");
+  				$scope.details = data.slice(0);
+  	})
+
+		  	$http.get("/getFollowers")
+  			.success(function(data) {
+  				console.log("Success returned from wallPost function");
+  				$scope.details1 = data.slice(0);
+  	})
+
+	  		$scope.logout = function(){
+  		
+  			console.log("Inside logout function");
+  			$http.post("/logout")
+  			.success(function(data) {
+  				console.log("Success returned from Logout");
+  				window.location.assign("/");
+  			})
+  			
+  		}
+  		
+  			$scope.searchUser = function(){
+  		
+  			var searchUser = "";
+  			console.log("Inside search function");
+  			searchUser = {name:$scope.search}
+  			
+  			$http.post("/search",searchUser)
+  			.success(function(data) {
+  				console.log("Success returned from searchUser function");
+  				
+  				console.log(data);
+  				$scope.fname = $scope.search;
+  				
+  				if (data === "N"){
+  					$scope.followUs = true;
+  				}
+  				
+  				if (data[0].request_status === "A"){
+  						$scope.status = "Already following";
+  				}
+  			})
+  			
+  		}
+  	
+  	<!--follow user-->
+  		
+  		$scope.followUser = function(){
+  				
+  			var reqUser = "";
+  			console.log("Inside followUser() function");
+  			reqUser = {destination:$scope.fname}
+  			
+  			$http.post("/followUs",reqUser)
+  			.success(function(data) {
+  				console.log("Success returned from followUser() function");
+  				$scope.status = "followed user successfully"
+  				
+  			})
+  						
+  		}
+
+  		$scope.postFeed = function(){
+  		
+  			var news = "";
+  			console.log("Inside postFeed() function");
+  			news = {newsfeed:$scope.feed};
+  			
+  			$http.post("/postFeed",news)
+  			.success(function(data) {
+  				console.log("Success returned from newsFeed() function");
+  				if (data === "Success"){
+  					$scope.feedStatus = "Feed posted successfully";
+  				}
+  				
+  			})
+  			
+  		}	
+  }
+
+
+
+  		$scope.retweet1 = function(){
+  		
+  			var retw = "";
+  			console.log("Inside retweet() function");
+  			retw = {newsfeed:$scope.feed};
+  			
+  			$http.post("/retweet1",retw)
+  			.success(function(data) {
+  				console.log("Success returned from newsFeed() function");
+  				if (data === "Success"){
+  					$scope.feedStatus = "retweeted successfully";
+  				}
+  				
+  			})
+  			
+  		}	
+  }
+
+		
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <style>
+      body {
+          background-image: url('/stylesheets/calc.jpg');
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+      }
+      html {
+       height: 100%
+      }
+    </style>
+  </head>
+  <body >
+    <center>
+    <div>
+    <h1 style="
+    color: black;
+    margin-right: 415px;
+    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+"><%= title %></h1>
+
+  <form method="post" action="/">                
+    
+    <div class="col-sm-2" style="margin-left: 610px;">
+        <input class="form-control" type="decimal" placeholder="Number1" name="num1" required>
+    </div> <br><br><br>
+
+    <div class="col-sm-2" style="margin-left: 610px;">
+        <input class="form-control" type="decimal" placeholder="Number2" name="num2" required>
+    </div> <br><br><br>
+
+<div class="col-sm-2" style="margin-left: 610px;">
+    <button type="submit" style="background-color: black;" class="btn btn-info btn-lg" name="operation" value="add">+</button> 
+    <button type="submit" style="background-color: black;" class="btn btn-info btn-lg" name="operation" value="subtract">-</button> 
+    <button type="submit" style="background-color: black;" class="btn btn-info btn-lg" name="operation" value="multiply">X</button> 
+    <button type="submit" style="background-color: black;" class="btn btn-info btn-lg" name="operation" value="divide">/</button> 
+</div>
+  </form><br><br><br>
+<div class="bs-example" style="padding-right: 900px; margin-left: 620px;">
+    <div class="panel panel-default">
+        <div class="panel-body"><%= result %></div>
+    </div>
+</div>
+</div></center>
+  </body>
+</html>
